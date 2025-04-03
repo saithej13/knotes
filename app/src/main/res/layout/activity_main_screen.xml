@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.vst.knotes.ActivityMainScreenVM" /> <!-- Replace with your ViewModel -->
+    </data>
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical">
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@color/new_app_color"
+               android:orientation="horizontal"
+               android:visibility="gone"
+               android:paddingVertical="10dp">
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="match_parent"
+                   android:layout_marginHorizontal="10dp"
+                   android:fontFamily="@font/montserrat_semibold"
+                   android:text="Note pad"
+                   android:textColor="@color/white"
+                   android:textSize="16sp" />
+           </LinearLayout>
+
+           <androidx.recyclerview.widget.RecyclerView
+               android:id="@+id/rvMain"
+               android:layout_width="match_parent"
+               android:layout_height="0dp"
+               android:layout_weight="1"
+               android:orientation="vertical"
+               android:layout_marginTop="5dp"
+               android:scrollbars="vertical"
+               app:adapter="@{viewModel.studentsAdapter}"
+               tools:listitem="@layout/main_screen_cell" />
+
+
+       </LinearLayout>
+
+       <androidx.cardview.widget.CardView
+           android:id="@+id/cvAdd"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           app:cardCornerRadius="10dp"
+           app:cardBackgroundColor="@color/app_color"
+           android:padding="5dp"
+           android:layout_marginHorizontal="25dp"
+           android:layout_marginVertical="30dp"
+           android:layout_alignParentBottom="true"
+           android:layout_alignParentEnd="true">
+           <ImageView
+               android:layout_width="50dp"
+               android:layout_height="50dp"
+               android:src="@drawable/add_symbol"/>
+       </androidx.cardview.widget.CardView>
+       <TextView
+           android:id="@+id/tvnodatafound"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginHorizontal="10dp"
+           android:fontFamily="@font/montserrat_bold"
+           android:text="No Data Found"
+           android:gravity="center"
+           android:textColor="@color/app_color"
+           android:layout_centerInParent="true"
+           android:visibility="gone"
+           android:textSize="18sp" />
+
+   </RelativeLayout>
+
+</layout>

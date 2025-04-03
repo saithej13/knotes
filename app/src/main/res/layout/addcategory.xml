@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:background="@color/white"
+        tools:context=".MainActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/new_bg_color"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/llytitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/size15"
+                    android:layout_marginBottom="@dimen/size20"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/margin_15">
+
+                    <TextView
+                        android:id="@+id/title1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:gravity="center"
+                        android:text="@string/category"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_24sp" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_10"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginHorizontal="@dimen/size15"
+                        android:singleLine="true"
+                        android:text="@string/category_name"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:textColor="@color/text_color1"
+                        android:textSize="@dimen/text_size_small_12sp" />
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/category_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/size10"
+                        android:background="@drawable/corner_radius_5_and_border_ebebeb"
+                        android:padding="@dimen/size10"
+                        android:layout_marginBottom="@dimen/size2"
+                        android:gravity="center_vertical"
+                        android:inputType="text"
+                        android:hint="@string/enter_category_name"
+                        android:textColor="@color/text_color_dark"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:textColorHint="@color/text_color_dark"
+                        android:textSize="@dimen/text_size_small_14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_10"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginHorizontal="@dimen/size15"
+                        android:singleLine="true"
+                        android:text="@string/category_description"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:textColor="@color/text_color1"
+                        android:textSize="@dimen/text_size_small_12sp" />
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/category_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/size10"
+                        android:background="@drawable/corner_radius_5_and_border_ebebeb"
+                        android:padding="@dimen/size10"
+                        android:layout_marginBottom="@dimen/size2"
+                        android:gravity="center_vertical"
+                        android:inputType="text"
+                        android:hint="@string/enter_category_description"
+                        android:textColor="@color/text_color_dark"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:textColorHint="@color/text_color_dark"
+                        android:textSize="@dimen/text_size_small_14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/capturecategoryimage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_10"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginHorizontal="@dimen/size15"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:singleLine="true"
+                        android:text="@string/category_icon"
+                        android:textColor="@color/text_color1"
+                        android:textSize="@dimen/text_size_small_12sp" />
+<!--                    <ImageView-->
+<!--                        android:id="@+id/iv_capture_image"-->
+<!--                        android:layout_width="@dimen/margin_30"-->
+<!--                        android:src="@drawable/camera"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:layout_marginRight="@dimen/margin_10"-->
+<!--                        android:layout_height="@dimen/margin_30" />-->
+
+                    <LinearLayout
+                        android:id="@+id/llPresent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:id="@+id/iv_image"
+                                android:layout_width="250dp"
+                                android:scaleType="fitXY"
+                                android:layout_gravity="center"
+                                android:visibility="visible"
+                                android:src="@drawable/empty_photo"
+                                android:layout_marginTop="@dimen/margin_10"
+                                android:layout_marginBottom="@dimen/margin_10"
+                                android:layout_height="250dp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="@dimen/size10"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/size10"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/app_color"
+                app:cardCornerRadius="@dimen/size16">
+                <!--                <TextView-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:fontFamily="@font/montserrat_bold"-->
+                <!--                    android:gravity="center"-->
+                <!--                    android:paddingVertical="@dimen/size10"-->
+                <!--                    android:text="Submit"-->
+                <!--                    android:textColor="@color/white"-->
+                <!--                    android:textSize="@dimen/size16" />-->
+
+            </androidx.cardview.widget.CardView>
+            <TextView
+                android:id="@+id/tvSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/size10"
+                android:layout_marginBottom="@dimen/size10"
+                android:background="@drawable/corner_radius_16"
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+                android:layout_alignParentBottom="true"
+                android:paddingVertical="@dimen/size10"
+                android:text="Submit"
+                android:textColor="@color/white"
+                android:textSize="@dimen/size16" />
+        </RelativeLayout>
+    </ScrollView>
+</layout>
