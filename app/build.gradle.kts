@@ -104,6 +104,8 @@ dependencies {
     implementation ("org.tensorflow:tensorflow-lite:2.11.0")
 //    implementation ("org.tensorflow:tensorflow-lite-support:0.5.0")
     implementation ("org.tensorflow:tensorflow-lite-gpu:2.10.0")
+    implementation("com.google.android.play:app-update:2.1.0")
+    implementation("com.google.android.play:app-update-ktx:2.1.0")
 //    implementation ("org.tensorflow:tensorflow-lite-metadata:0.4.0")
 
 }
