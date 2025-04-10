@@ -8,11 +8,6 @@ import android.app.ProgressDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.pm.ResolveInfo
-import android.database.Cursor
-import android.database.sqlite.SQLiteDatabase
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.net.Uri
@@ -26,7 +21,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
@@ -40,7 +34,6 @@ import com.vst.knotes.MVVM.Services.ProjectRepository
 import com.vst.knotes.MVVM.viewModel.LoginVM
 import com.vst.knotes.R
 import com.vst.knotes.RoomDataBase.SQLite.DatabaseHelper
-import com.vst.knotes.Utils.FileUtils
 import com.vst.knotes.Utils.MilkApplicationCheck
 import com.vst.knotes.Utils.MyApplication
 import com.vst.knotes.Utils.Preference
@@ -56,9 +49,10 @@ import java.net.HttpURLConnection
 import java.net.URL
 import kotlin.math.roundToInt
 
-class Login:BaseActivity() {
+//class Login:BaseActivity() {
+class Login: AppCompatActivity() {
     private lateinit var binding: LoginBinding
-    private lateinit var viewModel: LoginVM
+//    private lateinit var viewModel: LoginVM
     private lateinit var projectRepository: ProjectRepository
     private lateinit var screenItemList: MutableList<ScreenItem>
     private var progressDialog: ProgressDialog? = null
@@ -69,6 +63,7 @@ class Login:BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = LoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         val preference = Preference(this)
         projectRepository = ProjectRepository(application)
         binding.lifecycleOwner = this
@@ -88,50 +83,66 @@ class Login:BaseActivity() {
         binding.btnSignIn.setOnClickListener{
             try {
                 if(binding.edtUsername.text.isEmpty()){
-                    showCustomDialog(
-                        title = "Alert",
-                        message = "Username Cannot be Empty",
-                        "Ok","",{
-                            //yes click
-                        },{
-                            //No click
-                        }
-
-                    )
+//                    showCustomDialog(
+//                        title = "Alert",
+//                        message = "Username Cannot be Empty",
+//                        "Ok","",{
+//                            //yes click
+//                        },{
+//                            //No click
+//                        }
+//
+//                    )
                 }
                 else if(binding.edtpassword.text.isEmpty()){
-                    showCustomDialog(
-                        title = "Alert",
-                        message = "Password Cannot be Empty",
-                        "Ok","",{
-                            //yes click
-                        },{
-                            //No click
-                        }
-                    )
+//                    showCustomDialog(
+//                        title = "Alert",
+//                        message = "Password Cannot be Empty",
+//                        "Ok","",{
+//                            //yes click
+//                        },{
+//                            //No click
+//                        }
+//                    )
                 }
                 else {
-                    DatabaseHelper.openDatabase()?.let { sqLiteDatabase ->
-                        val query =
-                            "SELECT * FROM tblUsers where username='" + binding.edtUsername.text + "' and password='" + binding.edtpassword.text + "'"
-                        sqLiteDatabase.rawQuery(query, null)?.use { cursor ->
-                            if (cursor.moveToFirst()) {
-                                do {
-                                    val intent = Intent(this, OnboardingActivity::class.java)
-                                    startActivity(intent)
-                                    finish()
-                                } while (cursor.moveToNext())
-                            } else {
-                                showCustomDialog(
-                                    title = "Alert",
-                                    message = "Unable to Login, Please try again",
-                                    "Ok","",{
-                                        //Yes Click
-                                    },{
-                                        //No Click
-                                    }
-                                )
+                    val payload = JsonObject().apply {
+                        addProperty("email", binding.edtUsername.text.toString())
+                        addProperty("password", binding.edtpassword.text.toString())
+                    }
+
+                    projectRepository.login(payload).observe(this) { data ->
+                        if (data != null) {
+                            val token =
+                                data?.getAsJsonObject("authorisation")?.get("token")?.asString
+                            val refreshToken = data?.getAsJsonObject("authorisation")
+                                ?.get("refresh_token")?.asString
+                            val usertype = data?.getAsJsonObject("user")?.get("usertype")?.asString
+                            if (usertype.equals("restaurant")) {
+                                if (token != null && refreshToken != null) {
+                                    Preference(MyApplication.context).saveStringInPreference(
+                                        "token",
+                                        token
+                                    )
+                                    Preference(MyApplication.context).saveStringInPreference(
+                                        "refresh_token",
+                                        refreshToken
+                                    )
+                                }
+                                val intent = Intent(this, BaseActivity::class.java)
+                                startActivity(intent)
+                                finish()
                             }
+                        } else {
+//                            BaseActivity().showCustomDialog(
+//                                title = "Alert",
+//                                message = "Unable to Login, Please try again",
+//                                "Ok", "", {
+//                                    //Yes Click
+//                                }, {
+//                                    //No Click
+//                                }
+//                            )
                         }
                     }
                 }
@@ -141,29 +152,31 @@ class Login:BaseActivity() {
                 DatabaseHelper.closeDatabase()
             }
 
-            appUpdateManager = AppUpdateManagerFactory.create(this.applicationContext)
+//            appUpdateManager = AppUpdateManagerFactory.create(this.applicationContext)
+//
+//            // Returns an intent object that you use to check for an update.
+//            val appUpdateInfoTask = appUpdateManager!!.appUpdateInfo
+//
+//            // Checks that the platform will allow the specified type of update.
+//            appUpdateInfoTask.addOnSuccessListener { appUpdateInfo ->
+//                if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
+//                    // This example applies an immediate update. To apply a flexible update
+//                    // instead, pass in AppUpdateType.FLEXIBLE
+//                    && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)
+//                ) {
+//                    // Request the update.
+//                    appUpdateManager!!.startUpdateFlowForResult(
+//                        // Pass the intent that is returned by 'getAppUpdateInfo()'.
+//                        appUpdateInfo,
+//                        // an activity result launcher registered via registerForActivityResult
+//                        appUpdateLauncher,
+//                        // Or pass 'AppUpdateType.FLEXIBLE' to newBuilder() for
+//                        // flexible updates.
+//                        AppUpdateOptions.newBuilder(AppUpdateType.IMMEDIATE).build())
+//                }
+//            }
 
-            // Returns an intent object that you use to check for an update.
-            val appUpdateInfoTask = appUpdateManager!!.appUpdateInfo
 
-            // Checks that the platform will allow the specified type of update.
-            appUpdateInfoTask.addOnSuccessListener { appUpdateInfo ->
-                if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
-                    // This example applies an immediate update. To apply a flexible update
-                    // instead, pass in AppUpdateType.FLEXIBLE
-                    && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)
-                ) {
-                    // Request the update.
-                    appUpdateManager!!.startUpdateFlowForResult(
-                        // Pass the intent that is returned by 'getAppUpdateInfo()'.
-                        appUpdateInfo,
-                        // an activity result launcher registered via registerForActivityResult
-                        appUpdateLauncher,
-                        // Or pass 'AppUpdateType.FLEXIBLE' to newBuilder() for
-                        // flexible updates.
-                        AppUpdateOptions.newBuilder(AppUpdateType.IMMEDIATE).build())
-                }
-            }
 //            var strFile: Boolean = FileUtils.downloadSQLITE("", this, this@Login)
 //            if(strFile){
 //                Log.d("SQLITE","TRUE")
@@ -297,30 +310,30 @@ class Login:BaseActivity() {
         return paint
     }
 
-    override fun onProgress(count: Int) {
-        runOnUiThread {
-            if (dialogDownload != null) {
-                progressBar!!.progress = count
-                tvProgress!!.text = "$count %"
-            }
-        }
-    }
+//    override fun onProgress(count: Int) {
+//        runOnUiThread {
+//            if (dialogDownload != null) {
+//                progressBar!!.progress = count
+//                tvProgress!!.text = "$count %"
+//            }
+//        }
+//    }
 
-    override fun onComplete() {
-        runOnUiThread {
-            if (dialogDownload != null && dialogDownload!!.isShowing) {
-                dialogDownload!!.dismiss()
-            }
-        }
-    }
-
-    override fun onError() {
-        runOnUiThread {
-            if (dialogDownload != null && dialogDownload!!.isShowing) {
-                dialogDownload!!.dismiss()
-            }
-        }
-    }
+//    override fun onComplete() {
+//        runOnUiThread {
+//            if (dialogDownload != null && dialogDownload!!.isShowing) {
+//                dialogDownload!!.dismiss()
+//            }
+//        }
+//    }
+//
+//    override fun onError() {
+//        runOnUiThread {
+//            if (dialogDownload != null && dialogDownload!!.isShowing) {
+//                dialogDownload!!.dismiss()
+//            }
+//        }
+//    }
     private var tvProgress: TextView? = null
     private var progressBar: ProgressBar? = null
     private var dialogDownload: Dialog? = null

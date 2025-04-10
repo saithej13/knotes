@@ -23,12 +23,12 @@ class IntroViewPagerAdapter(
 
         binding.introTitle.text = mListScreen[position].title
         binding.introDescription.text = mListScreen[position].description
-//        binding.introImg.setImageResource(mListScreen[position].screenImg)
-        Picasso.get()
-            .load(mListScreen[position].screenImgPath) // Ensure this is a valid image URL
-//            .placeholder(R.drawable.placeholder) // Optional: Show while loading
-            .error(R.drawable.fab) // Optional: Show on error
-            .into(binding.introImg)
+        binding.introImg.setImageResource(mListScreen[position].screenImg)
+//        Picasso.get()
+//            .load(mListScreen[position].screenImgPath) // Ensure this is a valid image URL
+////            .placeholder(R.drawable.placeholder) // Optional: Show while loading
+//            .error(R.drawable.fab) // Optional: Show on error
+//            .into(binding.introImg)
 
         container.addView(binding.root)
         return binding.root

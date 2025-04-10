@@ -1,9 +1,7 @@
 package com.vst.knotes.RoomDataBase.SQLite
 
-import android.content.Context
 import android.database.SQLException
 import android.database.sqlite.SQLiteDatabase
-import android.text.TextUtils
 import android.util.Log
 import com.vst.knotes.MVVM.Services.AppConstants
 import com.vst.knotes.Utils.MyApplication

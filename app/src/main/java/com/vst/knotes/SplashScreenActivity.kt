@@ -19,7 +19,6 @@ import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.vst.knotes.MVVM.Services.ProjectRepository
 import com.vst.knotes.MVVM.View.BaseActivity
-import com.vst.knotes.MVVM.View.Login
 import com.vst.knotes.MVVM.View.OnboardingActivity
 import com.vst.knotes.Utils.FileUtils
 import com.vst.knotes.Utils.FileUtils.Companion.downloadSQLITE
@@ -105,20 +104,24 @@ class SplashScreenActivity: AppCompatActivity() , FileUtils.DownloadListner{
         }
         // Delay for 3 seconds before moving to the next activity
         Handler(Looper.getMainLooper()).postDelayed({
-            val MilkApplication = preference.getBooleanFromPreference(MilkApplicationCheck, false)
-            if(MilkApplication)
-            {
-//                val intent = Intent(this, Login::class.java)
-                val intent = Intent(this, BaseActivity::class.java)
-//                val intent = Intent(this, OnboardingActivity::class.java)
-                startActivity(intent)
-                finish()
-            }
-            else{
-                val intent = Intent(this, MainScreen::class.java)
-                startActivity(intent)
-                finish()
-            }
+            val intent = Intent(this, OnboardingActivity::class.java)
+//            val intent = Intent(this, OnboardingActivity::class.java)
+            startActivity(intent)
+            finish()
+//            val MilkApplication = preference.getBooleanFromPreference(MilkApplicationCheck, false)
+//            if(MilkApplication)
+//            {
+////                val intent = Intent(this, Login::class.java)
+//                val intent = Intent(this, BaseActivity::class.java)
+////                val intent = Intent(this, OnboardingActivity::class.java)
+//                startActivity(intent)
+//                finish()
+//            }
+//            else{
+//                val intent = Intent(this, MainScreen::class.java)
+//                startActivity(intent)
+//                finish()
+//            }
         }, 3000)
     }
     override fun onDestroy() {

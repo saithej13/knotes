@@ -41,8 +41,11 @@
             tools:ignore="Instantiatable" />
         <activity
             android:name=".MVVM.View.Login"
+            android:exported="true"
             android:windowSoftInputMode="adjustNothing"
-            tools:ignore="Instantiatable" />
+            tools:ignore="Instantiatable" >
+
+        </activity>
         <activity
             android:name=".MVVM.View.BaseActivity"
             android:windowSoftInputMode="adjustNothing"

@@ -31,6 +31,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
@@ -223,6 +224,7 @@ open class BaseActivity:AppCompatActivity() , FileUtils.DownloadListner {
 //            replaceFragment(HomeFragment())
 //        }
     }
+
     private var tvProgress: TextView? = null
     private var progressBar: ProgressBar? = null
     private var dialogDownload: Dialog? = null
@@ -342,6 +344,7 @@ open class BaseActivity:AppCompatActivity() , FileUtils.DownloadListner {
     fun hideBottomNavigation() {
         binding.bottomNavigation.visibility = View.GONE
     }
+
     override fun onBackPressed() {
 //        super.onBackPressed()// do not enable this , if enabled it will automaically closes the application
         if (supportFragmentManager.backStackEntryCount > 0) {
@@ -363,21 +366,21 @@ open class BaseActivity:AppCompatActivity() , FileUtils.DownloadListner {
                 }
             );
         }
-        if (this is Login) {
-            showCustomDialog(
-                title = "Logout",
-                message = "Are you sure you want to Exit",
-                "Yes", "No",
-                onYesClick = {
-                    // Handle Yes action
-//                    super.onBackPressed()
-                    finishAffinity()
-                },
-                onNoClick = {
-                    // Handle No action
-                }
-            )
-        }
+//        if (this is Login) {
+//            showCustomDialog(
+//                title = "Logout",
+//                message = "Are you sure you want to Exit",
+//                "Yes", "No",
+//                onYesClick = {
+//                    // Handle Yes action
+////                    super.onBackPressed()
+//                    finishAffinity()
+//                },
+//                onNoClick = {
+//                    // Handle No action
+//                }
+//            )
+//        }
     }
     fun showCustomDialog(
         title: String,

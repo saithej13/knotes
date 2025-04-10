@@ -57,4 +57,7 @@
     <color name="textnewColor">#ACAAAA</color>
     <color name="menu_color">#E8F4FF</color>
 
+
+    <color name="green_color">#4CAF50</color>
+
 </resources>

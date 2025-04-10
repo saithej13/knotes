@@ -28,17 +28,21 @@ class ProjectRepository(context: Context) {
     }
     fun login(payload: JsonObject): MutableLiveData<JsonObject?> {
         val data = MutableLiveData<JsonObject?>()
-        apiClient.Login().enqueue(object : Callback<JsonObject?> {
+        apiClient.login(payload).enqueue(object : Callback<JsonObject?> {
             override fun onResponse(call: Call<JsonObject?>, response: Response<JsonObject?>) {
                 if (response.isSuccessful) {
-                    data.setValue(response.body())
+                    data.value = response.body()
+                } else {
+                    data.value = null
                 }
             }
+
             override fun onFailure(call: Call<JsonObject?>, t: Throwable) {
-                data.setValue(null)
+                data.value = null
             }
         })
         return data
     }
+
 
 }

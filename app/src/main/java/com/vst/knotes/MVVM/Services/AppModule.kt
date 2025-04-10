@@ -17,6 +17,7 @@ object AppModule {
         synchronized(this) {
             if (retrofit == null) {
                 val client = OkHttpClient.Builder()
+                    .addInterceptor(TokenAuthInterceptor())
                     .addInterceptor(HttpLoggingInterceptor())
                     .build()
 

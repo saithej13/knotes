@@ -16,6 +16,7 @@ import com.vst.knotes.MVVM.View.Dashboard.dashboard
 import com.vst.knotes.MVVM.View.menu.menu
 import com.vst.knotes.MVVM.View.profile.profile
 import com.vst.knotes.MVVM.View.support.support
+import com.vst.knotes.R
 
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     private var datePickerDialog: DatePickerDialog? = null
@@ -28,17 +29,12 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     val STOREID="1"
     val ZONEID="1"
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        parent: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, parent: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = inflateBinding(inflater, parent) // Assign `_binding` before use
         notificationManager = activity?.getSystemService(Context.NOTIFICATION_SERVICE) as? NotificationManager
         createNotificationChannel()
 
-        return provideYourFragmentView(inflater, parent, savedInstanceState, viewLifecycleOwner)
-            ?: binding.root
+        return provideYourFragmentView(inflater, parent, savedInstanceState, viewLifecycleOwner) ?: binding.root
     }
 
     override fun onDestroyView() {
@@ -48,12 +44,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
     abstract fun inflateBinding(inflater: LayoutInflater, parent: ViewGroup?): VB
 
-    abstract fun provideYourFragmentView(
-        inflater: LayoutInflater,
-        parent: ViewGroup?,
-        savedInstanceState: Bundle?,
-        viewLifecycleOwner: LifecycleOwner
-    ): View?
+    abstract fun provideYourFragmentView(inflater: LayoutInflater, parent: ViewGroup?, savedInstanceState: Bundle?, viewLifecycleOwner: LifecycleOwner): View?
 
     private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -75,13 +66,16 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
                 mainActivity.hideBottomNavigation()
             }
         }
-
     }
-//    override fun onDetach() {
-//        super.onDetach()
-//        // Handle any cleanup when fragment is removed
-//    }
 
+
+    fun replaceFragment(fragment: Fragment, addToBackStack: Boolean = true) {
+        requireActivity().supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment_container, fragment) // Replace with your container ID
+            if (addToBackStack) addToBackStack(null)
+            commit()
+        }
+    }
 
 
 

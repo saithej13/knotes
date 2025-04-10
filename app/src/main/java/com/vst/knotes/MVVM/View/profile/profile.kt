@@ -1,89 +1,83 @@
 package com.vst.knotes.MVVM.View.profile
 
-import android.content.Context
-import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.drawable.BitmapDrawable
-import android.os.Build
+import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Bundle
-import android.os.VibrationEffect
-import android.os.Vibrator
+import android.util.TypedValue
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.content.ContextCompat
+import android.widget.TextView
+import androidx.core.text.HtmlCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.LifecycleOwner
-import com.vst.knotes.MVVM.View.BaseActivity
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import com.vst.knotes.MVVM.View.BaseFragment
-import com.vst.knotes.MVVM.View.category.AddCategory
-import com.vst.knotes.MVVM.View.category.Category
-import com.vst.knotes.R
-import com.vst.knotes.databinding.ProfileBinding
+import com.vst.knotes.databinding.MyAccountBinding
 
-class profile : BaseFragment<ProfileBinding>() {
-    var IsActive : Boolean = false;
-    override fun inflateBinding(inflater: LayoutInflater, parent: ViewGroup?): ProfileBinding {
-        return ProfileBinding.inflate(inflater, parent, false)
+class profile : BaseFragment<MyAccountBinding>() {
+
+    override fun inflateBinding(inflater: LayoutInflater, parent: ViewGroup?): MyAccountBinding {
+        return MyAccountBinding.inflate(inflater, parent, false)
     }
 
-    override fun provideYourFragmentView(
-        inflater: LayoutInflater,
-        parent: ViewGroup?,
-        savedInstanceState: Bundle?,
-        viewLifecycleOwner: LifecycleOwner
-    ): View? {
+    override fun provideYourFragmentView(inflater: LayoutInflater, parent: ViewGroup?, savedInstanceState: Bundle?, viewLifecycleOwner: LifecycleOwner): View? {
         return binding.root
     }
 
+
+    private lateinit var tabLayout: TabLayout
+    private lateinit var viewPager: ViewPager2
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnprofile.setOnClickListener {
-            if (IsActive)
-                context?.let { stopVibration(it) }
-            else
-                context?.let { startVibration(it) }
-//            val bitmap: Bitmap = loadSampleImage()  // Replace with your actual image loading method
-//            (activity as? BaseActivity)?.runInference(bitmap)
 
-//            (activity as? BaseActivity)?.replaceFragment(Category::class.java.newInstance() as Fragment)
+        val message = "Your Limit to hold cash is exceeded. Your Account will be suspended until you pay the due. You will not receive any new order request from now. <u><font color='#2196F3'>Pay the Due</font></u>"
+        binding.messageTv.text = HtmlCompat.fromHtml(message, HtmlCompat.FROM_HTML_MODE_LEGACY)
 
+        binding.attentionLL.setOnClickListener{ binding.attentionCV.visibility = View.GONE }
 
-//            (activity as? BaseActivity)?.showCustomDialog(
-//                title = "Delete Item",
-//                message = "Are you sure you want to delete this item?",
-//                onYesClick = {
-//                    // Handle Yes action
-//                    Toast.makeText(requireContext(), "Item Deleted", Toast.LENGTH_SHORT).show()
-//                },
-//                onNoClick = {
-//                    // Handle No action
-//                    Toast.makeText(requireContext(), "Canceled", Toast.LENGTH_SHORT).show()
-//                }
-//            )
+        tabLayout = binding.tabLayout
+        viewPager = binding.viewPager
+
+        val adapter = ViewPagerAdapter(this)
+        viewPager.adapter = adapter
+
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            val tabView = TextView(requireContext()).apply {
+                text = when (position) {
+                    0 -> "Payment History"
+                    1 -> "Wallet Provided Earning"
+                    else -> ""
+                }
+                setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
+                setTypeface(null, Typeface.BOLD)
+                gravity = Gravity.CENTER
+                setTextColor(Color.WHITE)
+//                setPadding(16, 8, 16, 8)
+            }
+            tab.customView = tabView
+        }.attach()
+        tabLayout.setSelectedTabIndicatorHeight(8) // in pixels
+
+    }
+
+    class ViewPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
+
+        override fun getItemCount() = 2
+
+        override fun createFragment(position: Int): Fragment {
+            return when (position) {
+                0 -> PaymentHistoryFragment()
+                1 -> WalletProvidedEarningFragment()
+                else -> throw IllegalStateException("Invalid position")
+            }
         }
     }
-
-    fun startVibration(context: Context) {
-//        val startIntent = Intent(context, VibrationService::class.java)
-//        startIntent.putExtra("action", "start")
-//        context.startService(startIntent)
-    }
-
-    // Function to stop the vibration service
-    fun stopVibration(context: Context) {
-//        val stopIntent = Intent(context, VibrationService::class.java)
-//        stopIntent.putExtra("action", "stop")
-//        context.startService(stopIntent)
-    }
-//    fun loadSampleImage(): Bitmap {
-//        val drawable = context?.let { ContextCompat.getDrawable(it, R.drawable.sample_img_model) }
-//        if (drawable is BitmapDrawable) {
-//            return drawable.bitmap
-//        } else {
-//            throw IllegalArgumentException("Drawable resource is not a BitmapDrawable.")
-//        }
-//    }
 
 }

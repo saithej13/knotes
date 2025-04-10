@@ -9,6 +9,7 @@ class MyApplication : Application() {
     private lateinit var networkStateReceiver: NetworkStateReceiver
     companion object {
         private var instance: MyApplication? = null
+        var context: Context?=null
 //        var APP_DB_LOCK: String = "lock"
         var APP_DB_LOCK: Any = Any()
         fun getInstance(): MyApplication? {
@@ -18,6 +19,7 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         instance = this
+        context = this
         networkStateReceiver = NetworkStateReceiver()
         registerReceiver(networkStateReceiver, IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION))
     }
