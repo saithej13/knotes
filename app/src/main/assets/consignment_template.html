@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            padding: 20px;
+        }
+        h2, h3 {
+            text-align: center;
+            margin: 0;
+        }
+        .company-info {
+            margin-bottom: 10px;
+        }
+        .company-info p {
+            margin: 2px 0;
+        }
+        .details-table, .item-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .details-table td {
+            padding: 5px;
+        }
+        .item-table th, .item-table td {
+            border: 1px solid #000;
+            padding: 5px;
+            text-align: left;
+        }
+        .footer-note {
+            margin-top: 30px;
+            font-size: 11px;
+            float: center;
+        }
+        .signature-section {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .signature-section div {
+            width: 45%;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>{{companyName}}</h2>
+
+    <div class="company-info">
+        <p>8 East, 8E 101-SD36, Airport Freezone,</p>
+        <p>Dubai Airport Freezone, Dubai, UAE</p>
+        <p>TEL: +97144910000</p>
+    </div>
+
+    <h3>{{trxHeader}}</h3>
+
+    <table class="details-table">
+        <tr>
+            <td>Customer Name: {{customerName}}</td>
+            <td style="float: right;">Order No: {{orderNo}}</td>
+        </tr>
+        <tr>
+            <td>Customer Number: {{customerNumber}}</td>
+            <td style="float: right;">Date: {{date}}</td>
+        </tr>
+        <tr>
+            <td>Reference Number: {{referenceNumber}}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Salesman Name: {{salesmanName}}</td>
+            <td></td>
+        </tr>
+    </table>
+
+    <table class="item-table">
+        <tr>
+            <th>S.No</th>
+            <th>Product Code</th>
+            <th>Product Description</th>
+            <th>Qty</th>
+        </tr>
+        {{items}}
+    </table>
+
+    <p style="float: right;"><strong>Total qty:</strong> {{totalQty}}</p>
+
+    <p class="footer-note" >
+        * Customer Acknowledges that all the goods are received.
+    </p>
+
+    <div class="signature-section">
+        <div>Sign:</div>
+        <div>Stamp:</div>
+    </div>
+
+</body>
+</html>

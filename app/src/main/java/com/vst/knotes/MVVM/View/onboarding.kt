@@ -8,15 +8,11 @@ import android.view.View
 import android.view.WindowManager
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
 import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
 import com.vst.knotes.MVVM.Adapter.IntroViewPagerAdapter
 import com.vst.knotes.R
 import com.vst.knotes.RoomDataBase.SQLite.DatabaseHelper
-import com.vst.knotes.Utils.MyApplication
-import com.vst.knotes.Utils.Preference
-import com.vst.knotes.databinding.LoginBinding
+import com.vst.knotes.utils.Preference
 import com.vst.knotes.databinding.OnboardingBinding
 
 class OnboardingActivity : AppCompatActivity() {

@@ -8,11 +8,6 @@ import android.app.ProgressDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.pm.ResolveInfo
-import android.database.Cursor
-import android.database.sqlite.SQLiteDatabase
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.net.Uri
@@ -26,9 +21,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import com.google.android.play.core.appupdate.AppUpdateManager
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory
@@ -40,10 +33,8 @@ import com.vst.knotes.MVVM.Services.ProjectRepository
 import com.vst.knotes.MVVM.viewModel.LoginVM
 import com.vst.knotes.R
 import com.vst.knotes.RoomDataBase.SQLite.DatabaseHelper
-import com.vst.knotes.Utils.FileUtils
-import com.vst.knotes.Utils.MilkApplicationCheck
-import com.vst.knotes.Utils.MyApplication
-import com.vst.knotes.Utils.Preference
+import com.vst.knotes.utils.MilkApplicationCheck
+import com.vst.knotes.utils.Preference
 import com.vst.knotes.databinding.LoginBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

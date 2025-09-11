@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardRate"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/textViewRateType"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="CM"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/buttonTest"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/mdi_calculator"
+                    android:contentDescription="Test Rate"
+                    android:layout_marginEnd="4dp"
+                    android:scaleType="fitCenter" />
+
+                <ImageButton
+                    android:id="@+id/buttonEdit"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/baseline_edit_24"
+                    android:contentDescription="Edit Rate"
+                    android:layout_marginEnd="4dp" />
+
+                <ImageButton
+                    android:id="@+id/buttonDeactivate"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/baseline_delete_24"
+                    android:contentDescription="Deactivate Rate" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Rate Details -->
+        <TextView
+            android:id="@+id/textViewRateDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fat: ₹10.0/% | SNF: ₹5.0/%"
+            android:textSize="16sp"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Formula -->
+        <TextView
+            android:id="@+id/textViewRateFormula"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Formula: (Fat × 10.0) + (SNF × 5.0)"
+            android:textSize="12sp"
+            android:textColor="@android:color/white"
+            android:textStyle="italic"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Effective Date -->
+        <TextView
+            android:id="@+id/textViewEffectiveDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Effective: 01/01/2024"
+            android:textSize="12sp"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Dates -->
+        <TextView
+            android:id="@+id/textViewCreatedDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Created: 01/01/2024 10:30:00"
+            android:textSize="10sp"
+            android:textColor="@android:color/white"
+            android:alpha="0.8" />
+
+        <TextView
+            android:id="@+id/textViewUpdatedDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Updated: 01/01/2024 10:30:00"
+            android:textSize="10sp"
+            android:textColor="@android:color/white"
+            android:alpha="0.8"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

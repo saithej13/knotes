@@ -18,7 +18,7 @@ import com.vst.knotes.MVVM.Model.productModel
 import com.vst.knotes.MVVM.View.BaseActivity
 import com.vst.knotes.MVVM.View.BaseFragment
 import com.vst.knotes.MVVM.View.SalesCheckout.salescheckout
-import com.vst.knotes.Utils.StringUtils
+import com.vst.knotes.utils.StringUtils
 import com.vst.knotes.databinding.AddsaleBinding
 import java.util.HashMap
 

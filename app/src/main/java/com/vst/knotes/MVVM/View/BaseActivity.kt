@@ -1,6 +1,5 @@
 package com.vst.knotes.MVVM.View
 
-import android.R.attr.bitmap
 import android.R.attr.height
 import android.R.attr.width
 import android.annotation.SuppressLint
@@ -40,19 +39,21 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import com.google.firebase.Firebase
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.firestore
 import com.vst.knotes.MVVM.Model.productModel
 import com.vst.knotes.MVVM.View.Dashboard.dashboard
 import com.vst.knotes.MVVM.View.menu.menu
 import com.vst.knotes.MVVM.View.profile.profile
 import com.vst.knotes.MVVM.View.support.support
+import com.vst.knotes.MVVM.View.milkdashboard.MilkDashboardFragment
 import com.vst.knotes.R
-import com.vst.knotes.Utils.FileUtils
-import com.vst.knotes.Utils.ImageCaptureListener
+import com.vst.knotes.utils.FileUtils
+import com.vst.knotes.utils.ImageCaptureListener
 import com.vst.knotes.databinding.BaseActivityBinding
-import org.tensorflow.lite.DataType
 import org.tensorflow.lite.Interpreter
 import java.io.File
-import java.io.IOException
 import kotlin.math.roundToInt
 //import org.tensorflow.lite.DataType
 //import org.tensorflow.lite.support.common.FileUtil
@@ -76,6 +77,7 @@ open class BaseActivity:AppCompatActivity() , FileUtils.DownloadListner {
     //    var ScreenTitle:String =""
     var _screenTitle = MutableLiveData<String>()
     var screenTitle: LiveData<String> = _screenTitle
+    val db = FirebaseFirestore.getInstance()
 
     // Function to preprocess image and convert it to ByteBuffer
 //    fun preprocessImage(original: Bitmap): ByteBuffer {
@@ -216,7 +218,7 @@ open class BaseActivity:AppCompatActivity() , FileUtils.DownloadListner {
             supportActionBar?.title = title
         })
         if (savedInstanceState == null) {
-            replaceFragment(dashboard())
+            replaceFragment(MilkDashboardFragment())
         }
         setupBottomNavigation()
 //        if (savedInstanceState == null) {
@@ -281,7 +283,7 @@ open class BaseActivity:AppCompatActivity() , FileUtils.DownloadListner {
         }
     }
     fun replaceFragment(fragment: Fragment) {
-        if (fragment is menu || fragment is dashboard || fragment is support || fragment is profile) {
+        if (fragment is menu || fragment is dashboard || fragment is support || fragment is profile || fragment is MilkDashboardFragment) {
             _screenTitle.value = fragment.javaClass.simpleName
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, fragment) // Replace container with the fragment
@@ -302,7 +304,7 @@ open class BaseActivity:AppCompatActivity() , FileUtils.DownloadListner {
             if (supportFragmentManager.backStackEntryCount == 0) {
                 binding.bottomNavigation.visibility = View.VISIBLE
             } else {
-                if (currentFragment is dashboard || currentFragment is menu|| currentFragment is support || currentFragment is profile) {
+                if (currentFragment is dashboard || currentFragment is menu|| currentFragment is support || currentFragment is profile || currentFragment is MilkDashboardFragment) {
                     binding.bottomNavigation.visibility = View.VISIBLE
                 } else {
                     binding.bottomNavigation.visibility = View.GONE
@@ -316,7 +318,7 @@ open class BaseActivity:AppCompatActivity() , FileUtils.DownloadListner {
         binding.bottomNavigation.setOnItemSelectedListener { item: MenuItem ->
             when (item.itemId) {
                 R.id.nav_home ->{
-                    replaceFragment(dashboard())
+                    replaceFragment(MilkDashboardFragment())
                     true
                 }
                 R.id.nav_menu -> {

@@ -14,6 +14,9 @@ recyclerview = "1.3.2"
 media3CommonKtx = "1.4.1"
 litertSupportApi = "1.2.0"
 litert = "1.2.0"
+firebaseDatabaseKtx = "21.0.0"
+googleGmsGoogleServices = "4.4.2"
+firebaseFirestore = "25.1.4"
 #litertSupportApi = "1.2.0"
 
 [libraries]
@@ -37,10 +40,13 @@ androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview"
 androidx-media3-common-ktx = { group = "androidx.media3", name = "media3-common-ktx", version.ref = "media3CommonKtx" }
 litert-support-api = { group = "com.google.ai.edge.litert", name = "litert-support-api", version.ref = "litertSupportApi" }
 litert = { group = "com.google.ai.edge.litert", name = "litert", version.ref = "litert" }
+firebase-database-ktx = { group = "com.google.firebase", name = "firebase-database-ktx", version.ref = "firebaseDatabaseKtx" }
+firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebaseFirestore" }
 #litert-support-api = { group = "com.google.ai.edge.litert", name = "litert-support-api", version.ref = "litertSupportApi" }
 
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
 

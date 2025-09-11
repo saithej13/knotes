@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rate Calculator"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:gravity="center" />
+
+        <!-- Rate Type Selection -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rate Type *"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
+
+        <Spinner
+            android:id="@+id/spinnerRateType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_5"
+            android:padding="@dimen/size10"
+            android:background="@drawable/corner_radius_8_and_border_black_2dp" />
+
+        <!-- Quantity Input -->
+
+            <EditText
+                android:id="@+id/editTextQuantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Quantity"
+                android:padding="@dimen/size10"
+                android:layout_margin="@dimen/margin_5"
+                android:background="@drawable/corner_radius_8_and_border_black_2dp"
+                android:inputType="numberDecimal" />
+
+
+        <!-- Fat Input -->
+
+            <EditText
+                android:id="@+id/editTextFat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Fat (%) *"
+                android:padding="@dimen/size10"
+                android:layout_margin="@dimen/margin_5"
+                android:background="@drawable/corner_radius_8_and_border_black_2dp"
+                android:inputType="numberDecimal" />
+
+        <!-- SNF Selection -->
+
+        <EditText
+            android:id="@+id/editTextSnf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SNF (%) *"
+            android:padding="@dimen/size10"
+            android:layout_margin="@dimen/margin_5"
+            android:background="@drawable/corner_radius_8_and_border_black_2dp"
+            android:inputType="numberDecimal" />
+
+
+        <!-- Calculate Button -->
+        <Button
+            android:id="@+id/buttonCalculate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Calculate Price"
+            android:textSize="16sp"
+            android:minHeight="56dp" />
+
+        <!-- Clear Button -->
+
+        <!-- Result Display -->
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/colorAccent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/textViewResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Total Amount: ₹0.00"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:gravity="center"
+                    android:layout_marginBottom="8dp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textViewPerLiterRate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Rate per Liter: ₹0.00"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/white"
+                    android:gravity="center"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Info Box -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="@android:color/holo_blue_light">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Rate Formulas:"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="CM: (Fat × Fat Rate) + (SNF × SNF Rate)"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/white"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="BM: (Fat × Rate) - (Max SNF - Current SNF) × Penalty"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="* Make sure to configure rates before calculating"
+            android:textSize="12sp"
+            android:textColor="@android:color/darker_gray"
+            android:layout_marginTop="16dp"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+</ScrollView>

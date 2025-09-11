@@ -232,5 +232,8 @@
     <string name="add_purchase">Add Purchase</string>
     <string name="add_expenses">Add Expenses</string>
     <string name="showall">Show All</string>
+    <string name="shift">Shift</string>
+    <string name="shift_morning">Morning</string>
+    <string name="shift_evening">Evening</string>
 
 </resources>

@@ -2,8 +2,6 @@ package com.vst.knotes.MVVM.View.product
 
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.os.Handler
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,14 +15,11 @@ import com.squareup.picasso.Picasso
 import com.vst.knotes.MVVM.Repositories.ProductRepository
 import com.vst.knotes.MVVM.Model.categoryModel
 import com.vst.knotes.MVVM.Model.productModel
-import com.vst.knotes.MVVM.Repositories.categoryRepository
 import com.vst.knotes.MVVM.View.BaseActivity
 import com.vst.knotes.MVVM.View.BaseFragment
-import com.vst.knotes.MVVM.View.category.CategoryViewModelFactory
-import com.vst.knotes.MVVM.View.category.categoryVM
 import com.vst.knotes.R
-import com.vst.knotes.Utils.ImageCaptureListener
-import com.vst.knotes.Utils.StringUtils
+import com.vst.knotes.utils.ImageCaptureListener
+import com.vst.knotes.utils.StringUtils
 import com.vst.knotes.databinding.AddproductBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay

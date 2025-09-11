@@ -1,7 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    kotlin("kapt") // Add this line
+    kotlin("kapt")
+    alias(libs.plugins.google.gms.google.services) // Add this line
 }
 
 android {
@@ -11,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId = "com.vst.knotes"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 5
         versionName = "3.2"
@@ -70,6 +71,8 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.firebase.database.ktx)
+    implementation(libs.firebase.firestore)
 //    implementation(libs.litert.support.api)
 //    implementation(libs.litert)
 //    implementation(libs.litert.support.api)
@@ -102,10 +105,23 @@ dependencies {
     implementation("com.google.android.material:material:1.12.0")
 //    implementation(libs.androidx.media3.common.ktx)
     implementation ("org.tensorflow:tensorflow-lite:2.11.0")
-//    implementation ("org.tensorflow:tensorflow-lite-support:0.5.0")
+    implementation ("org.tensorflow:tensorflow-lite-support:0.5.0")
     implementation ("org.tensorflow:tensorflow-lite-gpu:2.10.0")
     implementation("com.google.android.play:app-update:2.1.0")
     implementation("com.google.android.play:app-update-ktx:2.1.0")
-//    implementation ("org.tensorflow:tensorflow-lite-metadata:0.4.0")
+    implementation ("org.tensorflow:tensorflow-lite-metadata:0.4.0")
+
+    implementation ("com.facebook.shimmer:shimmer:0.5.0")
+    
+    // Excel export
+    implementation ("org.apache.poi:poi:5.2.3")
+    implementation ("org.apache.poi:poi-ooxml:5.2.3")
+    
+    // PDF export
+    implementation ("com.itextpdf:itext7-core:7.2.5")
+
+    implementation ("com.itextpdf:kernel:7.2.5")
+    implementation ("com.itextpdf:layout:7.2.5")
+
 
 }

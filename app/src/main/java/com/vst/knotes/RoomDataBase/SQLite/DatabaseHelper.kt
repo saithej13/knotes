@@ -1,14 +1,12 @@
 package com.vst.knotes.RoomDataBase.SQLite
 
-import android.content.Context
 import android.database.SQLException
 import android.database.sqlite.SQLiteDatabase
-import android.text.TextUtils
 import android.util.Log
 import com.vst.knotes.MVVM.Services.AppConstants
-import com.vst.knotes.Utils.MyApplication
-import com.vst.knotes.Utils.Preference
-import com.vst.knotes.Utils.SQLITEFILEPATH
+import com.vst.knotes.utils.MyApplication
+import com.vst.knotes.utils.Preference
+import com.vst.knotes.utils.SQLITEFILEPATH
 
 class DatabaseHelper private constructor() {
 

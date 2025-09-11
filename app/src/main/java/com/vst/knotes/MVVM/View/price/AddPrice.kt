@@ -3,7 +3,6 @@ package com.vst.knotes.MVVM.View.price
 import android.app.DatePickerDialog
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,12 +16,11 @@ import com.vst.knotes.MVVM.Model.pricingModel
 import com.vst.knotes.MVVM.View.BaseActivity
 import com.vst.knotes.MVVM.View.BaseFragment
 import com.vst.knotes.R
-import com.vst.knotes.Utils.CalendarUtils
-import com.vst.knotes.Utils.ImageCaptureListener
+import com.vst.knotes.utils.CalendarUtils
+import com.vst.knotes.utils.ImageCaptureListener
 import com.vst.knotes.databinding.AddpriceBinding
 import java.util.Calendar
 import androidx.lifecycle.Observer
-import com.vst.knotes.MVVM.Model.categoryModel
 import com.vst.knotes.MVVM.Model.productModel
 
 

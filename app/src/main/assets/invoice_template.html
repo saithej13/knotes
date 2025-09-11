@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial; font-size: 12px; padding: 20px; }
+        table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+        th, td { border: 1px solid black; padding: 5px; text-align: left; }
+        .header-table td { border: none; }
+        .footer-note { margin-top: 20px; text-align:center }
+        .footer-note1 { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">{{companyName}}</h2>
+    <p>{{companyAddress}}<br>
+    TEL: {{tel}}<br>
+    TRN: {{trn}}</p>
+
+    <h3 style="text-align: center;">{{trxHeader}}</h3>
+
+    <table class="header-table">
+        <tr>
+            <td style="text-align: left;">Customer Name: {{customerName}}</td>
+            <td style="text-align: right;">INV No: {{invoiceNumber}}</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Customer Number: {{customerNumber}}</td>
+            <td style="text-align: right;">Date: {{date}}</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Reference Number: {{referenceNumber}}</td>
+            <td style="text-align: right;">Currency: {{currency}}</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Salesman Name: {{salesmanName}}</td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <th>S.No</th>
+            <th>Product Code</th>
+            <th>Product Description</th>
+            <th>Qty</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th>VAT</th>
+            <th>NET</th>
+        </tr>
+        {{items}}
+    </table>
+
+    <p><b>Total Qty:</b> {{totalQty}}<br>
+    <b>Total Excl. VAT:</b> {{totalExclVat}}<br>
+    <b>Total with VAT:</b> {{totalWithVat}}</p>
+
+    <p><b>Total in Words:</b> {{totalInWords}}</p>
+
+    <p class="footer-note">
+        * Customer Acknowledges that all the goods are received.<br><br/>
+    </p>
+    <div style="display: flex; justify-content: space-between;">
+        <span>Sign: _______________________</span>
+        <span>Stamp: _______________________</span>
+    </div>
+<!--    <p class="footer-note1">-->
+<!--        Sign: _______________________ &nbsp;&nbsp;&nbsp; Stamp: _______________________-->
+<!--    </p>-->
+</body>
+</html>

@@ -20,9 +20,11 @@
     <color name="text_color_normal">#616161</color> <!-- dark gray -->
 
     <color name="colourPrimary">#1B478A</color>
+    <color name="colorPrimary">#1B478A</color>
     <color name="app_color">#1D2B51</color>
-    <color name="colourPrimaryDark">#1B478A</color>
 
+    <color name="colourPrimaryDark">#1B478A</color>
+    <color name="colorAccent">#10CEFF</color>
     <color name="ColourAccent">#10CEFF</color>
     <color name="colourTextPrimary">#212121</color>
     <color name="colourTextSecondary">#757575</color>

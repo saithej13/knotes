@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textViewTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Milk Collection"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="24dp"
+            android:gravity="center"
+            android:visibility="gone"/>
+
+        <!-- Date and Time Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+           <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/size35"
+                    android:focusable="false"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:text="@string/sampledate"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:padding="@dimen/size10"
+                    android:background="@null"
+                    android:drawableEnd="@drawable/formkit_date"
+                    />
+                <TextView
+                    android:id="@+id/tvShift"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/size35"
+                    android:focusable="false"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:text="@string/shift_morning"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:padding="@dimen/size10"
+                    android:background="@null"
+                    android:drawableEnd="@drawable/ic_morning"
+                    />
+
+            </LinearLayout>
+            <!-- Farmer Selection -->
+
+
+            <Spinner
+                android:id="@+id/spinnerFarmer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/size10"
+                android:layout_margin="@dimen/margin_5"
+                android:background="@drawable/corner_radius_8_and_border_black_2dp" />
+
+        </LinearLayout>
+        <Spinner
+            android:id="@+id/spinnerRateType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minHeight="48dp"
+            android:background="@drawable/corner_radius_8_and_border_black_2dp" />
+
+        <!-- Quantity Input -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="4dp">
+
+
+            <EditText
+                android:id="@+id/editTextQuantity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="Qty (Liters)*"
+                android:inputType="numberDecimal"
+                android:padding="@dimen/size10"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/margin_5"
+                android:background="@drawable/corner_radius_8_and_border_black_2dp"/>
+
+        <EditText
+            android:id="@+id/editTextFat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:layout_weight="1"
+            android:hint="Fat (%) *"
+            android:padding="@dimen/size10"
+            android:layout_margin="@dimen/margin_5"
+            android:background="@drawable/corner_radius_8_and_border_black_2dp" />
+        <EditText
+            android:id="@+id/editTextSnf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:layout_weight="1"
+            android:hint="Snf (%) *"
+            android:padding="@dimen/size10"
+            android:layout_margin="@dimen/margin_5"
+            android:background="@drawable/corner_radius_8_and_border_black_2dp"/>
+        <!-- Rate Type Selection -->
+    </LinearLayout>
+
+        <!-- Fat and SNF Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="4dp">
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+
+                app:boxStrokeColor="@color/colorPrimary"
+                app:hintTextColor="@color/colorPrimary">
+
+
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+<!--            <LinearLayout-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:layout_marginStart="8dp"-->
+<!--                android:orientation="vertical">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="SNF (%) *"-->
+<!--                    android:textSize="16sp"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:layout_marginBottom="8dp" />-->
+
+<!--                <Spinner-->
+<!--                    android:id="@+id/spinnerSnf"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:minHeight="48dp"-->
+<!--                    android:background="@drawable/corner_radius_8_and_border_black_2dp" />-->
+
+<!--            </LinearLayout>-->
+
+        </LinearLayout>
+
+        <!-- Calculate Button -->
+        <Button
+            android:id="@+id/buttonCalculate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Calculate Price"
+            android:visibility="gone"
+            style="@style/Widget.Material3.Button.TextButton" />
+
+        <!-- Price Display -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/colorAccent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="4dp">
+                <TextView
+                    android:id="@+id/textViewRatePerLiter"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Rate : ₹0.00"
+                    android:layout_weight="1"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/white"
+                    android:gravity="center"
+                    android:visibility="visible" />
+                <TextView
+                    android:id="@+id/textViewTotalAmount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Amount: ₹0.00"
+                    android:textSize="20sp"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:gravity="center"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone" />
+
+        <!-- Action Buttons -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="* Required fields"
+            android:textSize="12sp"
+            android:textColor="@android:color/darker_gray"
+            android:layout_marginTop="6dp"
+            android:gravity="center" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rcvmcollection"/>
+        <Button
+            android:id="@+id/buttonSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save Collection"
+            android:minWidth="120dp" />
+
+    </LinearLayout>
+
+</ScrollView>

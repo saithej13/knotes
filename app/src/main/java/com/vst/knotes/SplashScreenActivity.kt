@@ -19,14 +19,12 @@ import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.vst.knotes.MVVM.Services.ProjectRepository
 import com.vst.knotes.MVVM.View.BaseActivity
-import com.vst.knotes.MVVM.View.Login
-import com.vst.knotes.MVVM.View.OnboardingActivity
-import com.vst.knotes.Utils.FileUtils
-import com.vst.knotes.Utils.FileUtils.Companion.downloadSQLITE
-import com.vst.knotes.Utils.ISSQLITEDOWNLOADED
-import com.vst.knotes.Utils.MilkApplicationCheck
-import com.vst.knotes.Utils.NetworkManager
-import com.vst.knotes.Utils.Preference
+import com.vst.knotes.utils.FileUtils
+import com.vst.knotes.utils.FileUtils.Companion.downloadSQLITE
+import com.vst.knotes.utils.ISSQLITEDOWNLOADED
+import com.vst.knotes.utils.MilkApplicationCheck
+import com.vst.knotes.utils.NetworkManager
+import com.vst.knotes.utils.Preference
 import com.vst.knotes.databinding.ActivitySplashScreenBinding
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
@@ -105,7 +103,8 @@ class SplashScreenActivity: AppCompatActivity() , FileUtils.DownloadListner{
         }
         // Delay for 3 seconds before moving to the next activity
         Handler(Looper.getMainLooper()).postDelayed({
-            val MilkApplication = preference.getBooleanFromPreference(MilkApplicationCheck, false)
+//            val MilkApplication = preference.getBooleanFromPreference(MilkApplicationCheck, false)
+            val MilkApplication = true;
             if(MilkApplication)
             {
 //                val intent = Intent(this, Login::class.java)

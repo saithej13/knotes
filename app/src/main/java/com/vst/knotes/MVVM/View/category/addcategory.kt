@@ -14,8 +14,8 @@ import com.vst.knotes.MVVM.Model.categoryModel
 import com.vst.knotes.MVVM.View.BaseActivity
 import com.vst.knotes.MVVM.View.BaseFragment
 import com.vst.knotes.R
-import com.vst.knotes.Utils.ImageCaptureListener
-import com.vst.knotes.Utils.StringUtils
+import com.vst.knotes.utils.ImageCaptureListener
+import com.vst.knotes.utils.StringUtils
 import com.vst.knotes.databinding.AddcategoryBinding
 import java.io.File
 

@@ -1,0 +1,55 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/app_color" />
+    <corners android:radius="@dimen/size20" />
+    <gradient
+        android:angle="0"
+        android:endColor="#FEB914"
+        android:startColor="#FEB914"
+        android:type="linear" />
+
+</shape>
+<!--<vector-->
+<!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--xmlns:aapt="http://schemas.android.com/aapt"-->
+<!--android:width="322dp"-->
+<!--android:height="41dp"-->
+<!--android:viewportWidth="322"-->
+<!--android:viewportHeight="41"-->
+<!--    >-->
+<!--    android:endColor="#FFD290"-->
+<!--    android:startColor="#FEB914"-->
+<!--<group>-->
+<!--    <clip-path-->
+<!--        android:pathData="M20 0H302C313.046 0 322 8.95431 322 20V21C322 32.0457 313.046 41 302 41H20C8.95431 41 0 32.0457 0 21V20C0 8.95431 8.95431 0 20 0Z"-->
+<!--        />-->
+<!--    <group-->
+<!--        android:pivotX="161"-->
+<!--        android:pivotY="20.5"-->
+<!--        android:scaleX="2"-->
+<!--        android:scaleY="2"-->
+<!--        >-->
+<!--        <path-->
+<!--            android:pathData="M0 0V41H322V0"-->
+<!--            >-->
+<!--            <aapt:attr name="android:fillColor">-->
+<!--                <gradient-->
+<!--                    android:type="linear"-->
+<!--                    android:startX="80.5"-->
+<!--                    android:startY="20.5"-->
+<!--                    android:endX="241.5"-->
+<!--                    android:endY="20.5"-->
+<!--                    >-->
+<!--                    <item-->
+<!--                        android:color="#FEB914"-->
+<!--                        android:offset="0"-->
+<!--                        />-->
+<!--                    <item-->
+<!--                        android:color="#FFD290"-->
+<!--                        android:offset="1"-->
+<!--                        />-->
+<!--                </gradient>-->
+<!--            </aapt:attr>-->
+<!--        </path>-->
+<!--    </group>-->
+<!--</group>-->
+<!--</vector>-->

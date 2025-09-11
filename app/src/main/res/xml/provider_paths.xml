@@ -11,5 +11,8 @@
     <external-path
         name="documents"
         path="Documents/knotes/" />
+    
+    <!-- Path for exported files -->
+    <external-files-path name="exported_files" path="Documents/" />
 
 </paths>
